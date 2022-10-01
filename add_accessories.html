@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="js/siderbar.js" type="text/javascript"></script>
+</head>
+
+
+
+
+
+<!-- sider bar menu start here -->
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <div class="nav_list"> <a href="ownerlogin" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i>
+                    <span class="nav_name">Dashboard</span> </a>
+                <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Distributer
+                        Invoice</span> </a>
+
+                <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                        class="nav_name">Customer Invoice</span> </a>
+
+                <a href="distributer_list" class="nav_link "> <i class='bx bx-bookmark nav_icon'></i>
+                    <span class="nav_name">Add New
+                        Distributer</span> </a>
+
+                <a href="add_model" class="nav_link "> <i class='bx bx-folder nav_icon'></i> <span
+                        class="nav_name">Add New
+                        Mb Model</span> </a>
+
+                <a href="add_accessories" class="nav_link active"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Add New type Acc.</span> </a>
+
+            </div>
+            </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                    class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div>
+       
+        <div class="main-container">
+            <h2 class="pt-3">Add Product</h2>
+            <form action="/stockUpdate" method="post">
+
+                <div class="row">
+
+                    <div class="form-group col">
+                        <label>Distributer Name</label>
+                        <input type="text" name="distName" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group col">
+                        <label>GST. No</label>
+                        <input type="text" name="gstNo" class="form-control" id="exampleInputPassword" name="password">
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="background-color:#ff6d01;color: #fff;"
+                    name="create">Register</button>
+            </form>
+        </div>
+    </div>
+    <!--Container Main end-->
+</body>
+
+<footer class=" bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class=" container text-center">
+        2022 © Copyright:orange city collection
+
+    </div>
+    <!-- Copyright -->
+</footer>
+
+
+
+</html>

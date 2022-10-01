@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -10,71 +11,72 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Anek+Malayalam&family=Montserrat:wght@500;900&family=Ubuntu&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
+
+
+   
+
+
+
     <section class="vh-100">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 text-black">
-
-                    <div class="px-5 ms-xl-4">
-                        <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
-
-                    </div>
+                <div class="col-sm-6 col-md-6 text-black">
 
                     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-                        <form style="width: 23rem;">
+                        <form action="/register" method="post" style="width: 23rem;">
 
-                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create An Account</h3>
+                            <h1 style=" color:#ff6d01 ;">Registration</h1><hr>
 
                             <div class="form-outline mb-4 ">
                                 <label class="form-label" for="form2Example18">Full Name</label>
-                                <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                                <input type="text" name="name" id="form2Example18" class="form-control form-control-lg" />
                             </div>
                             <div class="row g-3">
                                 <div class="form-outline mb-4 col">
                                     <label class="form-label" for="form2Example18">Mobile No.</label>
-                                    <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                                    <input type="text" name="mobNumber" id="form2Example18" class="form-control form-control-lg" />
                                 </div>
 
 
                                 <div class="form-outline mb-4 col ">
                                     <label class="form-label" for="form2Example28">Expected Range</label>
-                                    <input type="password" id="form2Example28" class="form-control form-control-lg" />
+                                    <input type="text" name="expectetedRange" id="form2Example28" class="form-control form-control-lg" />
                                 </div>
                             </div>
                             <div class="row g-3">
                                 <div class="form-outline mb-4 col">
                                     <label class="form-label" for="form2Example28">Enter Your Choice</label>
-                                    <input type="password" id="form2Example28" class="form-control form-control-lg" />
+                                    <input type="text" name="intrestedIn" id="form2Example28" class="form-control form-control-lg" />
                                 </div>
 
 
                                 <div class="form-outline mb-4 col">
                                     <label class="form-label" for="form2Example18">Email address</label>
-                                    <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                                    <input type="email" name="email" id="form2Example18" class="form-control form-control-lg" />
                                 </div>
                             </div>
                             <div class="row g-3">
                                 <div class="form-outline mb-4 col">
                                     <label class="form-label" for="form2Example18">Password</label>
-                                    <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                                    <input type="text" id="form2Example18" class="form-control form-control-lg" />
                                 </div>
 
 
                                 <div class="form-outline mb-4 col">
                                     <label class="form-label" for="form2Example28">Confirm Password</label>
-                                    <input type="password" id="form2Example28" class="form-control form-control-lg" />
+                                    <input type="password" name="password" id="form2Example28" class="form-control form-control-lg" />
                                 </div>
 
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block"
-                                    style="background-color:#ff6d01;color: #fff;" type="button">Register</button>
+                                <button class="btn btn-info btn-lg btn-block" 
+                                    style="background-color:#ff6d01;color: #fff;" type="submit">Register</button>
                             </div>
 
                         </form>
@@ -83,7 +85,7 @@
 
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block mb-auto mt-auto">
-                    <img src="img/logo.png" alt="Login image" class=" img-fluid">
+                    <img src="images/logo.png" alt="Login image" class=" img-fluid">
                 </div>
             </div>
         </div>

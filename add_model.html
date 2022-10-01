@@ -34,8 +34,7 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <div class="nav_list">
-                    <a href="ownerlogin" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i>
+                <div class="nav_list"> <a href="ownerlogin" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i>
                         <span class="nav_name">Dashboard</span> </a>
                     <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Distributer
                             Invoice</span> </a>
@@ -47,12 +46,12 @@
                             class="nav_name">Add New
                             Distributer</span> </a>
 
-                    <a href="model_list" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                    <a href="model_list" class="nav_link active"> <i class='bx bx-folder nav_icon'></i> <span
                             class="nav_name">Add New
                             Mb Model</span> </a>
 
-                    <a href="add_accessories" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
-                            class="nav_name">Add New type Acc.</span> </a>
+                    <a href="add_accessories" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                        <span class="nav_name">Add New type Acc.</span> </a>
 
                 </div>
             </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
@@ -61,22 +60,35 @@
     </div>
     <!--Container Main start-->
     <div>
-        <h4>Dashboard</h4>
-        <div class="main-container p-3">
-            <div class="row justify-content-around">
-                <div class="col-2 p-3  d-inline-block" style=" height: 200px;width: 200px; background-color:red">
-                    stock
-                </div>
-                <div class="col-2    p-3  d-inline-block" style="height: 200px;width: 200px;background-color:blue ">
-                    updated stock
-                </div>
-                <div class="col-2    p-3  d-inline-block" style="height: 200px;width: 200px;background-color:green ">
-                    profit
-                </div>
-            </div>
 
+        <div class="main-container">
+            <h2 class=" pt-3">Add Model</h2>
+            <form action="/saveModel" method="post">
 
+                <div class="row">
+                    <div class="form-group col">
+                        <label>Brand Name</label>
+                        <input type="text" name="brandName" class="form-control" id="brandName">
+                    </div>
+                    <div class="form-group col">
+                        <label>Model Name</label>
+                        <input type="text" name="modelName" class="form-control" id="modelName">
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="form-group col">
+                        <label>Varrient</label>
+                        <input type="text" class="form-control" id="varrient" name="varrient">
+                    </div>
+                    <div class="form-group col">
+                        <label>Color</label>
+                        <input type="text" class="form-control" id="color" name="color">
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="background-color:#ff6d01;color: #fff;"
+                    name="create">Add</button>
+            </form>
         </div>
     </div>
     <!--Container Main end-->
@@ -85,7 +97,7 @@
 <footer class=" bg-light text-center text-lg-start">
     <!-- Copyright -->
     <div class=" container text-center">
-        Copyright © 2022 orange city collection
+        2022 © Copyright:orange city collection
 
     </div>
     <!-- Copyright -->

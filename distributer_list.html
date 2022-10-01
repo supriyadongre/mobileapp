@@ -1,0 +1,238 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/popup.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="js/siderbar.js" type="text/javascript"></script>
+</head>
+
+
+
+
+
+<!-- sider bar menu start here -->
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <div class="nav_list"> <a href="ownerlogin" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Dashboard</span> </a>
+                    <a href="invoice" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
+                            class="nav_name">Distributer
+                            Invoice</span> </a>
+
+                    <a href="customer_invoice" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i>
+                        <span class="nav_name">Customer Invoice</span> </a>
+
+                    <a href="distributer_list" class="nav_link active"> <i class='bx bx-bookmark nav_icon'></i>
+                        <span class="nav_name">Add New
+                            Distributer</span> </a>
+
+                    <a href="model_list" class="nav_link "> <i class='bx bx-folder nav_icon'></i> <span
+                            class="nav_name">Add New
+                            Mb Model</span> </a>
+
+                    <a href="add_accessories" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                        <span class="nav_name">Add New type Acc.</span> </a>
+
+                </div>
+            </div> <a href="logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                    class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <!-- add form pop up open -->
+    <div class="loginPopup">
+        <div class="formPopup" id="popupForm">
+            <form action="#" id="formContainer" class="formContainer">
+
+                <div class="dist-container">
+                    <div class="row">
+                        <h4>Edit Distributer</h4>
+                        <div class="form-group col">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group col">
+                            <label>GST. No</label>
+                            <input type="text" name="gstNumber" class="form-control" id="gstNumber" name="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label>Address</label>
+                            <textarea type="text" class="form-control" id="address" name="address"></textarea>
+                        </div>
+                        <div class="form-group col">
+                            <label>Contact Number</label>
+                            <input type="text" class="form-control" id="ContactNumber" name="ContactNumber">
+                            <input type="hidden" name="tableRowId" id="tableRowId" />
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn submit" id="submit" onclick="addForm()"
+                        style="background-color:#ff6d01;color: #fff;" name="createDistributer">Add</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- add form pop up close -->
+    <div>
+        <div class="main-container">
+            <h2 class=" pt-3 ">Distributer List</h2>
+            <a href="/add_distributer" class="btn btn-success mb-3 "> Add</a>
+            <div class="table-div bd-highlight">
+
+                <table id="myTable" class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>GST No</th>
+                            <th>Address</th>
+                            <th>Contact No</th>
+                            <th> </th>
+                            <th> </th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="tdData">
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Container Main end-->
+</body>
+
+<footer class=" bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class=" container text-center">
+        2022 © Copyright:orange city collection
+
+    </div>
+    <!-- Copyright -->
+</footer>
+<script>
+
+    // for open  popup 
+    function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+    }
+    // for  close popup 
+    function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+    }
+
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/getDistributerData',
+            dataType: "json", //to parse string into JSON object,
+            success: function (data) {
+                if (data) {
+                    for (let i = 0; i < data.length; i++) {
+                        $('#myTable tbody').append('<tr><td></td><td>' + data[i].name + '</td><td>' + data[i].gstNumber + '</td><td>' + data[i].address + '</td><td>' + data[i].ContactNumber + '</td><td><button  type="button" onclick="openForm()" style=" background-color: #ff6d01 ; color: #fff" class="btn btn-warning getDetails" data-row-id =' + data[i]._id + '>edit</button></td><td><button type="button" delete-row-id=' + data[i]._id + ' class="btn btn-danger deleteData">Delete</button></td></tr>');
+                    }
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('error: ' + textStatus + ': ' + errorThrown);
+            }
+        });
+    });
+
+
+    $(document).on('click', '.getDetails', function () {
+
+
+        let rowVal = $(this).attr("data-row-id");
+
+        $.ajax({
+            type: 'PUT',
+            url: '/getData/' + rowVal,
+            success: function (data) {
+                openForm();
+
+                if (data) {
+                    document.getElementById('name').value = data[0].name;
+                    document.getElementById('gstNumber').value = data[0].gstNumber;
+                    document.getElementById('address').value = data[0].address;
+                    document.getElementById('ContactNumber').value = data[0].ContactNumber;
+                    document.getElementById('tableRowId').value = data[0]._id;
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('error: ' + textStatus + ': ' + errorThrown);
+            }
+        });
+    });
+
+
+    function addForm() {
+
+        const formData = new FormData(document.getElementById('formContainer'));
+        const distData = {
+            name: formData.get('name'),
+            gstNumber: formData.get('gstNumber'),
+            address: formData.get('address'),
+            ContactNumber: formData.get('ContactNumber'),
+            rowid: formData.get('tableRowId'),
+        }
+        console.log(distData);
+
+        $.ajax({
+            type: 'POST',
+            url: 'saveDistributer',
+            dataType: "json", //to parse string into JSON object,
+            data: distData,
+
+
+            success: function (resultData) {
+                if (resultData.status) {
+                    window.location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('error: ' + textStatus + ': ' + errorThrown);
+            }
+        });
+    }
+
+    $(document).on('click', '.deleteData', function () {
+        let deleteId = $(this).attr("delete-row-id");
+        console.log(deleteId)
+        $.ajax({
+            type: 'DELETE',
+            url: '/deleteData/' + deleteId,
+            success: function (data) {
+                if (data.status) {
+                    window.location.reload();
+                }
+            }
+        });
+    })
+
+</script>
+
+
+</html>

@@ -1,0 +1,1 @@
+//java script for index.html

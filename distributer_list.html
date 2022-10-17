@@ -31,25 +31,19 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <div class="nav_list"> <a href="ownerlogin" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i>
+                <div class="nav_list"> <a href="dashboard" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i>
                         <span class="nav_name">Dashboard</span> </a>
-                    <a href="invoice" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
-                            class="nav_name">Distributer
-                            Invoice</span> </a>
-
-                    <a href="customer_invoice" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i>
-                        <span class="nav_name">Customer Invoice</span> </a>
-
                     <a href="distributer_list" class="nav_link active"> <i class='bx bx-bookmark nav_icon'></i>
                         <span class="nav_name">Add New
                             Distributer</span> </a>
+
+                            
 
                     <a href="model_list" class="nav_link "> <i class='bx bx-folder nav_icon'></i> <span
                             class="nav_name">Add New
                             Mb Model</span> </a>
 
-                    <a href="add_accessories" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                        <span class="nav_name">Add New type Acc.</span> </a>
+
 
                 </div>
             </div> <a href="logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
@@ -71,7 +65,7 @@
                         </div>
                         <div class="form-group col">
                             <label>GST. No</label>
-                            <input type="text" name="gstNumber" class="form-control" id="gstNumber" name="password">
+                            <input type="text" name="gst" class="form-control" id="gst" >
                         </div>
                     </div>
                     <div class="row">
@@ -81,7 +75,7 @@
                         </div>
                         <div class="form-group col">
                             <label>Contact Number</label>
-                            <input type="text" class="form-control" id="ContactNumber" name="ContactNumber">
+                            <input type="text" class="form-control" id="mb_no" name="mb_no" maxlength="10">
                             <input type="hidden" name="tableRowId" id="tableRowId" />
                         </div>
                     </div>
@@ -151,7 +145,7 @@
             success: function (data) {
                 if (data) {
                     for (let i = 0; i < data.length; i++) {
-                        $('#myTable tbody').append('<tr><td></td><td>' + data[i].name + '</td><td>' + data[i].gstNumber + '</td><td>' + data[i].address + '</td><td>' + data[i].ContactNumber + '</td><td><button  type="button" onclick="openForm()" style=" background-color: #ff6d01 ; color: #fff" class="btn btn-warning getDetails" data-row-id =' + data[i]._id + '>edit</button></td><td><button type="button" delete-row-id=' + data[i]._id + ' class="btn btn-danger deleteData">Delete</button></td></tr>');
+                        $('#myTable tbody').append('<tr><td></td><td>' + data[i].name + '</td><td>' + data[i].gst + '</td><td>' + data[i].address + '</td><td>' + data[i].mb_no + '</td><td><button  type="button" onclick="openForm()" style=" background-color: #ff6d01 ; color: #fff" class="btn btn-warning getDetails" data-row-id =' + data[i]._id + '>edit</button></td><td><button type="button" delete-row-id=' + data[i]._id + ' class="btn btn-danger deleteData">Delete</button></td></tr>');
                     }
                 }
             },
@@ -175,9 +169,9 @@
 
                 if (data) {
                     document.getElementById('name').value = data[0].name;
-                    document.getElementById('gstNumber').value = data[0].gstNumber;
+                    document.getElementById('gst').value = data[0].gst;
                     document.getElementById('address').value = data[0].address;
-                    document.getElementById('ContactNumber').value = data[0].ContactNumber;
+                    document.getElementById('mb_no').value = data[0].mb_no;
                     document.getElementById('tableRowId').value = data[0]._id;
                 }
             },
@@ -193,9 +187,9 @@
         const formData = new FormData(document.getElementById('formContainer'));
         const distData = {
             name: formData.get('name'),
-            gstNumber: formData.get('gstNumber'),
+            gst: formData.get('gst'),
             address: formData.get('address'),
-            ContactNumber: formData.get('ContactNumber'),
+            mb_no: formData.get('mb_no'),
             rowid: formData.get('tableRowId'),
         }
         console.log(distData);

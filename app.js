@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.set('view engine','ejs');
 app.use(express.static("public"));
 
+// this is testing for git
+
 // app.use(cors({
 //     origin: '*'
 // }));
